@@ -1,5 +1,5 @@
 {
-  "name": "Risk-Management",
+  "name": "cpapp",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -7,7 +7,10 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^6",
-    "express": "^4"
+    "express": "^4",
+    "hdb": "^0.19.0",
+    "@sap/xssec": "^3",
+    "passport": "^0"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.102.6",
@@ -48,5 +51,20 @@
   },
   "sapux": [
     "app/risks"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "[production]": {
+        "db": {
+          "kind": "hana-cloud"
+        },
+        "auth": {
+          "kind": "xsuaa"
+        }
+      },
+      "db": {
+        "kind": "sql"
+      }
+    }
+  }
 }
